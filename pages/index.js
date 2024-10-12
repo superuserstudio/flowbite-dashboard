@@ -1,8 +1,5 @@
-import React from 'react'
-import dynamic from 'next/dynamic'
-
-const DashboardComponent = dynamic(() => import('../components/Dashboard'), { ssr: false })
+import Dashboard from '../components/Dashboard'
 
 export default function Home() {
-  return <DashboardComponent />
+  return <Dashboard />
 }
