@@ -13,7 +13,9 @@
     "react-dom": "^18.2.0",
     "chart.js": "^4.0.0",
     "react-chartjs-2": "^5.0.0",
-    "lucide-react": "^0.244.0"
+    "lucide-react": "^0.244.0",
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
