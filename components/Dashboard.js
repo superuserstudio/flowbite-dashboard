@@ -12,7 +12,6 @@ import { Bar } from 'react-chartjs-2'
 import { 
   Bell, 
   Search, 
-  ChevronDown, 
   LayoutDashboard, 
   FileText, 
   ShoppingCart, 
@@ -21,9 +20,6 @@ import {
   FileQuestion, 
   Boxes, 
   HelpCircle,
-  Plus,
-  Filter,
-  Download,
   MoreHorizontal
 } from 'lucide-react'
 
@@ -234,53 +230,95 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Orders by State Section */}
+            {/* Inventory Level Section */}
             <div className="mt-8">
               <div className="bg-gray-800 overflow-hidden rounded-lg shadow">
                 <div className="p-6">
-                  <h3 className="text-lg font-medium leading-6 text-white">Orders by state</h3>
-                  <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <div className="bg-gray-700 overflow-hidden rounded-lg">
-                      {/* Placeholder for US map */}
-                      <div className="h-64 bg-purple-900 flex items-center justify-center">
-                        <span className="text-white">US Map Placeholder</span>
-                      </div>
-                    </div>
-                    <div>
-                      <table className="min-w-full divide-y divide-gray-700">
-                        <thead>
-                          <tr>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">State</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Orders</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Customers</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Delivery rate</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-700">
-                          <tr>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">California</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">8,750</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">7,557</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-green-400">↗ 87%</td>
-                          </tr>
-                          <tr>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">Nevada</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">7,533</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">6,585</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-red-400">↘ 13%</td>
-                          </tr>
-                          <tr>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">Texas</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">6,784</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">5,344</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-red-400">↘ 42%</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-medium leading-6 text-white">Inventory level</h3>
+                    <span className="text-sm text-green-400">+1,452  (0.85%)</span>
+                  </div>
+                  <div className="mt-1 text-sm text-gray-400">Material stock</div>
+                  <div className="mt-5">
+                    <Bar options={inventoryOptions} data={inventoryData} height={300} />
                   </div>
                 </div>
               </div>
             </div>
 
-            
+            {/* Active Shipments Section */}
+            <div className="mt-8">
+              <div className="bg-gray-800 overflow-hidden rounded-lg shadow">
+                <div className="p-6">
+                  <div className="sm:flex sm:items-center">
+                    <div className="sm:flex-auto">
+                      <h3 className="text-lg font-medium leading-6 text-white">Active shipments</h3>
+                    </div>
+                    <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+                      <button
+                        type="button"
+                        className="inline-flex items-center justify-center rounded-md border border-transparent bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:w-auto"
+                      >
+                        Add shipment
+                      </button>
+                    </div>
+                  </div>
+                  <div className="mt-8 flex flex-col">
+                    <div className="-my-2 -mx-4 overflow-x-auto  sm:-mx-6 lg:-mx-8">
+                      <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                        <table className="min-w-full divide-y divide-gray-700">
+                          <thead>
+                            <tr>
+                              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-6">
+                                SHIPMENT ID
+                              </th>
+                              <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-white">
+                                DESTINATION
+                              </th>
+                              <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-white">
+                                ESTIMATED ARRIVAL
+                              </th>
+                              <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-white">
+                                CUSTOMER
+                              </th>
+                              <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-white">
+                                PRICE
+                              </th>
+                              <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-white">
+                                STATUS
+                              </th>
+                              <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                                <span className="sr-only">Edit</span>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-gray-700">
+                            <tr>
+                              <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
+                                #1846325
+                              </td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">New York DHL Supply Chain</td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">25-Sep-2023 | 09:20</td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">Bonnie Green</td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">$768,987</td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm text-yellow-500">In transit</td>
+                              <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                <button type="button" className="text-purple-400 hover:text-purple-300">
+                                  <MoreHorizontal className="h-5 w-5" />
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  )
+}
