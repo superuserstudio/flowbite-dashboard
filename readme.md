@@ -28,9 +28,3 @@ This project is deployed on Vercel. To deploy your own version:
 - Next.js
 - React
 - Vercel
-
-uygujytuytuytuytut uyt uytu u
-
-jugy
-ujty
-uytruyg
