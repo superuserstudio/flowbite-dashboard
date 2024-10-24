@@ -27,7 +27,7 @@ export default function Dashboard() {
               Sign In
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiTable}>
-              Sign Up
+              Sign Up Now
             </Sidebar.Item>
           </Sidebar.ItemGroup>
         </Sidebar.Items>
